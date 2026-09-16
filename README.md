@@ -81,7 +81,7 @@ The recommendation system follows a content-based approach.
 
 ### Basic Flow
 
-```text
+```
 User Preferences
        ↓
 Preference Processing
@@ -93,7 +93,13 @@ Cosine Similarity
 Restaurant Ranking
        ↓
 Recommended Restaurants
+```
+
+---
+
 ## 📂 Project Structure
+
+```
 Restaurant-Recommendation-System/
 │
 ├── app1.py
@@ -118,74 +124,138 @@ Restaurant-Recommendation-System/
 │   └── ...
 │
 └── .gitignore
-The Python virtual environment and other generated files are excluded from the repository using .gitignore.
+```
+
+The Python virtual environment and other generated files are excluded from the repository using `.gitignore`.
+
 ---
+
 ## ⚙️ Installation and Setup
-1. Clone the repository
+
+### Step 1: Clone the Repository
+```bash
 git clone <YOUR_GITHUB_REPOSITORY_URL>
-2. Navigate to the project directory
+```
+
+### Step 2: Navigate to the Project Directory
+```bash
 cd Restaurant-Recommendation-System
-3. Create a virtual environment
+```
+
+### Step 3: Create a Virtual Environment
+```bash
 python -m venv .venv
-4. Activate the virtual environment
-Windows:
+```
+
+### Step 4: Activate the Virtual Environment
+
+**Windows:**
+```bash
 .venv\Scripts\activate
-Linux/macOS:
+```
+
+**Linux/macOS:**
+```bash
 source .venv/bin/activate
-5. Install dependencies
-If your dependency file is named req.txt:
+```
+
+### Step 5: Install Dependencies
+```bash
 pip install -r req.txt
-6. Run the Flask application
+```
+
+### Step 6: Run the Flask Application
+```bash
 python app1.py
-Then open the local URL displayed by Flask in your browser.
+```
+
+Then open the local URL displayed by Flask in your browser (typically `http://127.0.0.1:5000`).
+
 ---
+
 ## 🗃️ Dataset
+
 The project uses a restaurant dataset containing information such as:
-Restaurant Name
-City
-Cuisine
-Rating
-Average Cost
-Area
+
+- Restaurant Name
+- City
+- Cuisine
+- Rating
+- Average Cost
+- Area
+
 The dataset is processed using Pandas before being used by the recommendation system.
+
 ---
-##🗄️ Database
+
+## 🗄️ Database
+
 SQLite is used to store application-related information such as:
-User details
-Login-related information
-Restaurant booking details
+
+- User details
+- Login-related information
+- Restaurant booking details
+
 ---
+
 ## 🔮 Future Improvements
+
 Possible future enhancements include:
-Adding a larger and more diverse restaurant dataset
-Adding user-specific recommendation history
-Improving recommendation personalization
-Adding restaurant availability information
-Deploying the application to a cloud platform
-Adding map/location integration
-Improving the UI and mobile responsiveness
+
+- Adding a larger and more diverse restaurant dataset
+- Adding user-specific recommendation history
+- Improving recommendation personalization
+- Adding restaurant availability information
+- Deploying the application to a cloud platform
+- Adding map/location integration
+- Improving the UI and mobile responsiveness
+
 ---
+
 ## 👩‍💻 My Contribution
-V. Mohana Durga — Team Lead
-Developed the Flask-based web application
-Worked on the restaurant recommendation logic
-Integrated the recommendation model with the web application
-Worked with restaurant data preprocessing
-Implemented filtering and recommendation functionality
-Worked on the user and booking workflow
-Integrated the frontend with the Flask backend
+
+**V. Mohana Durga — Team Lead**
+
+- Developed the Flask-based web application
+- Worked on the restaurant recommendation logic
+- Integrated the recommendation model with the web application
+- Worked with restaurant data preprocessing
+- Implemented filtering and recommendation functionality
+- Worked on the user and booking workflow
+- Integrated the frontend with the Flask backend
+
 ---
+
 ## 🎓 Academic Project
+
 This project was developed as part of the B.Tech – Artificial Intelligence & Machine Learning academic project.
-Project Title:
-###  Restaurant Recommendation System Using User Preferences and Ratings
+
+**Project Title:** Restaurant Recommendation System Using User Preferences and Ratings
+
 ---
-## 🌐 Demo
+
+## 🚀 Getting Started
+
+### Live Demo
 
 🔗 **Live Demo:** Coming Soon
 
-###🚀 Run Locally
+### Run Locally
 
-After starting the Flask application, open:
+After starting the Flask application, open your browser and navigate to:
 
-`http://127.0.0.1:5000`
+```
+http://127.0.0.1:5000
+```
+
+---
+
+## 📝 License
+
+[Add your license information here]
+
+---
+
+## 📧 Contact
+
+For any questions or suggestions, please feel free to reach out!
