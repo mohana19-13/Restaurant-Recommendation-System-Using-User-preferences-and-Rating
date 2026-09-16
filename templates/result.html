@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommended Restaurants</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+
+            /* 🔥 Your background image */
+            background: url("{{ url_for('static', filename='table-book.jpg') }}");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* 🔥 Dark overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* 🔥 Card styling */
+        .card {
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .card-body {
+            background: rgba(255,255,255,0.9);
+            border-radius: 0 0 15px 15px;
+        }
+
+        /* 🔥 Form inputs */
+        .form-control {
+            border-radius: 10px;
+        }
+
+        /* 🔥 Button */
+        .book-btn {
+            background: #ff4d6d;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            transition: 0.3s;
+        }
+
+        .book-btn:hover {
+            background: #e63946;
+            transform: scale(1.05);
+        }
+
+        h2 {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container my-5">
+
+    <h2 class="mb-4 text-center">🍽️ Recommended Restaurants</h2>
+
+    <!-- No Results -->
+    {% if message %}
+        <div class="alert alert-warning">{{ message }}</div>
+    {% endif %}
+
+    <div class="row">
+
+        {% for restaurant in recommended_restaurants %}
+        <div class="col-md-4 mb-4">
+
+            <div class="card shadow">
+
+                <!-- Image -->
+                <img src="{{ restaurant.image }}"
+                     style="width:100%; height:200px; object-fit:cover;"
+                     onerror="this.src='/static/table-book.jpeg'">
+
+                <div class="card-body">
+
+                    <h5 class="text-capitalize">{{ restaurant['Restaurant Name'] }}</h5>
+
+                    <p><strong>City:</strong> {{ restaurant['City'] }}</p>
+                    <p><strong>Cuisines:</strong> {{ restaurant['Cuisines'].title() }}</p>
+                    <p><strong>Rating:</strong> {{ restaurant['Aggregate rating'] }}</p>
+
+                    <!-- 🔥 FULL BOOKING FORM -->
+                    <form action="/book" method="POST">
+
+                        <input type="hidden" name="restaurant" value="{{ restaurant['Restaurant Name'] }}">
+
+                        <input type="text" name="name" placeholder="Your Name" class="form-control mb-2" required>
+
+                        <input type="tel" name="phone" placeholder="Phone Number" class="form-control mb-2" required>
+
+                        <input type="date" name="date" class="form-control mb-2" required>
+
+                        <input type="time" name="time" class="form-control mb-2" required>
+
+                        <input type="number" name="people" placeholder="No. of People" class="form-control mb-2" min="1" required>
+
+                        <select name="table_type" class="form-control mb-2">
+                            <option value="">Select Table Type</option>
+                            <option>Normal</option>
+                            <option>Family</option>
+                            <option>Couple</option>
+                            <option>Outdoor</option>
+                            <option>AC Hall</option>
+                        </select>
+
+                        <input type="text" name="request" placeholder="Special Request" class="form-control mb-2">
+
+                        <button type="submit" class="book-btn w-100">✅ Book Table</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="text-center">
+        <a href="/recommend" class="btn btn-primary mt-3">🔙 Back to Search</a>
+    </div>
+
+</div>
+
+</body>
+</html>

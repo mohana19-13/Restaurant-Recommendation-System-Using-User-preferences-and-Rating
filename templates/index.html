@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Recommender</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+
+            /* 🔥 Your background image */
+            background: url("{{ url_for('static', filename='image.jpeg') }}");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+        }
+
+        /* 🔥 Dark overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* 🔥 HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        /* 🔥 BUTTON */
+        button {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #e63946;
+            transform: scale(1.05);
+        }
+
+        /* 🔥 HERO SECTION */
+        .hero {
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #ffd166;
+            font-weight: bold;
+        }
+
+        /* 🔥 BUTTON GROUP */
+        .btn-group {
+            margin-top: 20px;
+        }
+
+        .btn-group button {
+            margin: 5px;
+        }
+
+        /* 🔥 ANIMATION */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 🔥 RESPONSIVE */
+        @media(max-width: 768px) {
+            .hero h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🍴 Restaurant Recommender</h1>
+
+    <div>
+        <button onclick="location.href='/'">Home</button>
+        <button onclick="location.href='/recommend'">Explore</button>
+
+        {% if session.get('username') %}
+            <span style="color:#ffd166; font-weight:bold;">
+                👋 {{ session.get('username') }}
+            </span>
+            <button onclick="location.href='/logout'">Logout</button>
+        {% else %}
+            <button onclick="location.href='/login'">Login</button>
+            <button onclick="location.href='/signup'">Signup</button>
+        {% endif %}
+    </div>
+</header>
+
+<!-- 🔥 HERO SECTION -->
+<div class="hero">
+    <div class="hero-content">
+
+        <h2>Discover Your Next Favorite Restaurant 🍽️</h2>
+
+        <p>
+            Find the best places to eat with our <span class="highlight">AI-powered recommendation system</span>.
+            Explore restaurants based on <b>cuisine, location, and ratings</b> — all in one place.
+        </p>
+
+        <div class="btn-group">
+            <button onclick="location.href='/recommend'">🚀 Get Started</button>
+            <button onclick="location.href='/login'">🔐 Login</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

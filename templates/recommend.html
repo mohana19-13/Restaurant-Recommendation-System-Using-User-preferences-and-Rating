@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant Search</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+
+            /* 🔥 Background Image */
+                background: url("{{ url_for('static', filename='res-9.jpg') }}");
+  
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        /* 🔥 Dark overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* 🔥 Glass Form */
+        .container-box {
+            width: 400px;
+            margin: 80px auto;
+            background: rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
+            animation: fadeIn 1s ease-in-out;
+            color: white;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+
+        select:focus, input:focus {
+            box-shadow: 0px 0px 5px #ff4d6d;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 25px;
+            border: none;
+            background: #ff4d6d;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e63946;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media(max-width: 500px) {
+            .container-box {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container-box">
+    <h2>🍽️ Find Your Food</h2>
+
+    <form action="/filter" method="POST">
+
+        <!-- Location -->
+        <label>Select Location</label>
+        <select name="location" id="location">
+            <option value="">--All Locations--</option>
+            {% for loc in locations %}
+                <option value="{{ loc.lower() }}">{{ loc.title() }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- Cuisine -->
+        <label>Select Cuisine</label>
+        <select name="cuisine" id="cuisine">
+            <option value="">--Select Cuisine--</option>
+        </select>
+
+        <!-- Rating -->
+        <label>Minimum Rating</label>
+        <input type="number" step="0.1" min="0" max="5" name="rating" placeholder="e.g. 4.0">
+
+        <button type="submit">🔍 Search Restaurants</button>
+    </form>
+</div>
+
+<!-- 🔥 Dynamic Cuisine Script -->
+<script>
+    const locationCuisines = {{ location_cuisines | tojson }};
+    const locationSelect = document.getElementById('location');
+    const cuisineSelect = document.getElementById('cuisine');
+
+    locationSelect.addEventListener('change', () => {
+        const selectedLoc = locationSelect.value;
+        const cuisines = locationCuisines[selectedLoc] || [];
+        cuisineSelect.innerHTML = '<option value="">--Select Cuisine--</option>';
+
+        cuisines.forEach(c => {
+            const option = document.createElement('option');
+            option.value = c;
+            option.text = c.charAt(0).toUpperCase() + c.slice(1);
+            cuisineSelect.appendChild(option);
+        });
+    });
+</script>
+
+</body>
+</html>
