@@ -93,7 +93,7 @@ Cosine Similarity
 Restaurant Ranking
        ↓
 Recommended Restaurants
-**📂 Project Structure**
+## 📂 Project Structure
 Restaurant-Recommendation-System/
 │
 ├── app1.py
@@ -120,7 +120,7 @@ Restaurant-Recommendation-System/
 └── .gitignore
 The Python virtual environment and other generated files are excluded from the repository using .gitignore.
 ---
-### ⚙️ Installation and Setup
+## ⚙️ Installation and Setup
 1. Clone the repository
 git clone <YOUR_GITHUB_REPOSITORY_URL>
 2. Navigate to the project directory
@@ -139,7 +139,7 @@ pip install -r req.txt
 python app1.py
 Then open the local URL displayed by Flask in your browser.
 ---
-### 🗃️ Dataset
+## 🗃️ Dataset
 The project uses a restaurant dataset containing information such as:
 Restaurant Name
 City
@@ -149,13 +149,13 @@ Average Cost
 Area
 The dataset is processed using Pandas before being used by the recommendation system.
 ---
-### 🗄️ Database
+##🗄️ Database
 SQLite is used to store application-related information such as:
 User details
 Login-related information
 Restaurant booking details
 ---
-### 🔮 Future Improvements
+## 🔮 Future Improvements
 Possible future enhancements include:
 Adding a larger and more diverse restaurant dataset
 Adding user-specific recommendation history
@@ -165,7 +165,7 @@ Deploying the application to a cloud platform
 Adding map/location integration
 Improving the UI and mobile responsiveness
 ---
-###👩‍💻 My Contribution
+## 👩‍💻 My Contribution
 V. Mohana Durga — Team Lead
 Developed the Flask-based web application
 Worked on the restaurant recommendation logic
@@ -175,7 +175,7 @@ Implemented filtering and recommendation functionality
 Worked on the user and booking workflow
 Integrated the frontend with the Flask backend
 ---
-### 🎓 Academic Project
+## 🎓 Academic Project
 This project was developed as part of the B.Tech – Artificial Intelligence & Machine Learning academic project.
 Project Title:
 ###  Restaurant Recommendation System Using User Preferences and Ratings
@@ -184,7 +184,7 @@ Project Title:
 
 🔗 **Live Demo:** Coming Soon
 
-## 🚀 Run Locally
+###🚀 Run Locally
 
 After starting the Flask application, open:
 
