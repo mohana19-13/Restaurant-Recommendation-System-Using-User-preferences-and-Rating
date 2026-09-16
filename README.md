@@ -119,6 +119,7 @@ Restaurant-Recommendation-System/
 │
 └── .gitignore
 The Python virtual environment and other generated files are excluded from the repository using .gitignore.
+---
 ### ⚙️ Installation and Setup
 1. Clone the repository
 git clone <YOUR_GITHUB_REPOSITORY_URL>
@@ -137,6 +138,7 @@ pip install -r req.txt
 6. Run the Flask application
 python app1.py
 Then open the local URL displayed by Flask in your browser.
+---
 ### 🗃️ Dataset
 The project uses a restaurant dataset containing information such as:
 Restaurant Name
@@ -146,11 +148,13 @@ Rating
 Average Cost
 Area
 The dataset is processed using Pandas before being used by the recommendation system.
+---
 ### 🗄️ Database
 SQLite is used to store application-related information such as:
 User details
 Login-related information
 Restaurant booking details
+---
 ### 🔮 Future Improvements
 Possible future enhancements include:
 Adding a larger and more diverse restaurant dataset
@@ -160,6 +164,7 @@ Adding restaurant availability information
 Deploying the application to a cloud platform
 Adding map/location integration
 Improving the UI and mobile responsiveness
+---
 ###👩‍💻 My Contribution
 V. Mohana Durga — Team Lead
 Developed the Flask-based web application
@@ -169,10 +174,12 @@ Worked with restaurant data preprocessing
 Implemented filtering and recommendation functionality
 Worked on the user and booking workflow
 Integrated the frontend with the Flask backend
+---
 ### 🎓 Academic Project
 This project was developed as part of the B.Tech – Artificial Intelligence & Machine Learning academic project.
 Project Title:
 ###  Restaurant Recommendation System Using User Preferences and Ratings
+---
 ## 🌐 Demo
 
 🔗 **Live Demo:** Coming Soon
